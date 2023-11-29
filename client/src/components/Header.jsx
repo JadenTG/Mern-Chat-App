@@ -7,7 +7,7 @@ const Header = ({ username, logout, link, icon}) => {
             <h1><Link to="/">Chat App</Link></h1>
             <div className="aside">
                 <p>Welcome {username}!</p>
-                <Link to={link} className="btn"><i className={`bi${icon}`}></i></Link>
+                <Link to={link} className="btn"><i className={`bi ${icon}`}></i></Link>
                 <button onClick={logout} className="btn"><i className="bibi-box-arrow-right"></i></button>
             </div>
         </div>
