@@ -43,10 +43,10 @@ const ContactList = ({ user, setOpenChat }) => {
                         setOpenChat({ chatId: res.data._id, chatType: res.data.chat.type, members: res.data.chat.members, title: contact.username })
                     })
                 }
-            }) 
+            })
         } else if (chatType == "room") {
             await axios.get(`${baseURL}/users/chat/${room._id}`).then((res) => {
-                setOpenChat({ chatId: res.data.chat._id, chatType: res.data.chat.type, members: res.data.chat.members, title: res.data.chat.name})
+                setOpenChat({ chatId: res.data.chat._id, chatType: res.data.chat.type, members: res.data.chat.members, title: res.data.chat.name })
             })
         }
     }
@@ -56,8 +56,8 @@ const ContactList = ({ user, setOpenChat }) => {
         fetchRooms();
     }, [])
 
-    return(
-        <div className='contactsList'>
+    return (
+        <div id='contactsList'>
             <button onClick={() => setShowContacts(!showContacts)}>
                 Users
                 {showContacts ?
@@ -68,7 +68,7 @@ const ContactList = ({ user, setOpenChat }) => {
             </button>
             <ul className='contacts'>
                 {showContacts && userList && userList.map((contact) => {
-                    return(
+                    return (
                         <li onClick={() => handleOpenChat('private', contact, null)} key={contact._id}>{contact.username}</li>
                     )
                 })}
@@ -76,21 +76,21 @@ const ContactList = ({ user, setOpenChat }) => {
             <button onClick={() => setShowRooms(!showRooms)}>
                 Rooms
                 {showRooms ?
-                <i className='bi bi-chevorn-up' />
-                :
-                <i className='bi bi-chevorn-down' />
+                    <i className='bi bi-chevorn-up' />
+                    :
+                    <i className='bi bi-chevorn-down' />
                 }
             </button>
             <ul className='rooms'>
                 {showRooms && roomsList.length ? roomsList.map((room) => {
-                    return(
+                    return (
                         <li onClick={() => handleOpenChat('room', null, room)} key={room._id}>
                             <p>{room.name}</p>
                             <p>{roomsList.members.length} users</p>
                         </li>
                     )
                 }) : <p>Your aren't in any rooms :/</p>
-            }
+                }
             </ul>
         </div>
     )

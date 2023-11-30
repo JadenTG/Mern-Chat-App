@@ -44,7 +44,7 @@ const Login = ({ setUser }) => {
                     <p>{err}</p>
                     </div>}
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Username" name="username" value={userform.username} onChange={() => {}}/>
+                    <input type="text" placeholder="Username" name="username" value={userform.username} onChange={handleChange}/>
                     <input type="password" placeholder="Password" name="password" value={userform.password} onChange={handleChange} />
 
                     <button type="submit" className="btn">Login</button>

@@ -7,7 +7,8 @@ const jwt = require("jsonwebtoken");
 const userSchema = require("../models/User");
 
 router.route("/sign-up").post(async (req, res, next) => {
-    req.body.password = await bcrypt.hash(req.body.passowrd, 10);
+    console.log(req.body);
+    req.body.password = await bcrypt.hash(req.body.password, 10);
 
     await userSchema
         .create(req.body)
@@ -47,7 +48,7 @@ router.route("/login").post(async (req, res, next) => {
                     .json({ message: "Incorrect username or password" });
             }
 
-            const passwordCorrect = bcyrpt.compareSync(req.body.password, user.password);
+            const passwordCorrect = bcrypt.compareSync(req.body.password, user.password);
 
             if(!passwordCorrect) {
                 return res

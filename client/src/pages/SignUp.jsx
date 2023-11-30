@@ -30,6 +30,7 @@ const SignUp = ({ setUser }) => {
 
         await axios.post(`${baseURL}/auth/sign-up`, {
             username: userform.username,
+            email: userform.email,
             password: userform.password,
             confirmPass: userform.password
         }, {withCredentials: true }).then((res) => {
