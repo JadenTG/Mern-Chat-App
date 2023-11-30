@@ -148,7 +148,7 @@ a {
 }
 
 /* Contacts List */
-#contactList,
+#contactsList,
 #roomMembers{
   width: 25%;
   overflow-y: auto;
@@ -162,7 +162,7 @@ a {
   cursor: pointer;
 }
 
-#contactsLists button i {
+#contactsList button i {
   margin-left: 0.5rem;
 }
 

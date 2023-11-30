@@ -3,7 +3,7 @@ import axios from "axios"
 import {baseURL} from "../util"
 
 const RoomMembers = ({user, setErr, selectedUsers, setSelectedUsers}) => {
-    cosnt [userList, setUserList] = useState([]);
+    const [userList, setUserList] = useState([]);
 
     const fetchUsers = async () => {
         axios.get(`${baseURL}/users/${user._id}/contacts`, {withCredentials: true})
