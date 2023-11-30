@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cookieParser = ("cookie-parser");
+const cookieParser = require("cookie-parser");
 
 require('dotenv').config();
 
@@ -15,7 +15,7 @@ const userRoutes = require("./routes/users");
 
 const authMiddleware = require("./middleware/authmiddlewar");
 const corsOptions = {
-    origin: ["http://localhost:5173"],
+    origin: "http://localhost:5173",
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
     credentials: true,
     methods: ['GET', 'POSTS'],
@@ -23,7 +23,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

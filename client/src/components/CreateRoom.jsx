@@ -34,7 +34,7 @@ const CreateRoom = ({ user, err, setErr, selectedUsers }) => {
     }
 
     return(
-        <div className='from-wrapper' id='createRoom'>
+        <div className='form-wrapper' id='createRoom'>
             <div className='container'>
                 <h1>Create Room</h1>
                 {err && 

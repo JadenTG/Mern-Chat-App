@@ -45,7 +45,7 @@ router.route("/messages/:chatId").get(async (req, res, next) => {
     });
 });
 
-router.route("/message").get(async (req, res, next) => {
+router.route("/message").post(async (req, res, next) => {
     await messageSchema
     .create(req.body)
     .then((message) => {
@@ -58,15 +58,15 @@ router.route("/message").get(async (req, res, next) => {
 });
 
 router.route("/:userId/chat").post(async (req, res, next) => {
-    let newChat = "";
+    let chatname = "";
     if (req.body.name) {
         chatname = req.body.name;
     }
 
     await chatSchema
         .create({
-            name: chatName,
-            members: [req,params.userId, ...req.body.members],
+            name: chatname,
+            members: [req.params.userId, ...req.body.members],
             type: req.body.type
         })
         .then((chat) => {
@@ -90,9 +90,9 @@ router.route("/:userId/chat/:chatType").get(async (req, res, next) => {
         });
 });
 
-router.route("/:chat/:firstUserId/:secondUserId").get(async (req, res, next) => {
+router.route("/chat/:firstUserId/:secondUserId").get(async (req, res, next) => {
     await chatSchema
-        .findOne({ type: "private", member: { $all: [req.params.firstUserId, req.params.secondUserId ] } })
+        .findOne({ type: "private", members: { $all: [req.params.firstUserId, req.params.secondUserId ] } })
         .then((chat) => {
             res.json({ chat });
         })

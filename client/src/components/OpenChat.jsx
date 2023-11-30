@@ -37,7 +37,7 @@ const OpenChat = ({ openChat, user}) => {
     }, [openChat])
 
     return (
-        <div className="openChat">
+        <div id="openChat">
             <div className='chat-header'>
                 {openChat.title}
             </div>

@@ -14,10 +14,10 @@ const ChatFooter = ({ openChat, socket, user, setMessages }) => {
             chatId: openChat.chatId
         }
 
-        let recivers = openChat.members.filiter((memberId) => memberId !== user._id);
+        let receivers = openChat.members.filter((memberId) => memberId !== user._id);
         socket.current.emit('sendMessage', {
             sender: user._id,
-            reciever,
+            receivers,
             message
         })
 

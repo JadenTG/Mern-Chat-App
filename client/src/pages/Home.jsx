@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react'
 
 import Header from '../components/Header.jsx'
 import ContactsList from '../components/ContactList.jsx'
-import openChat from '../components/OpenChat.jsx'
+import OpenChat from '../components/OpenChat.jsx'
 
 const Home = ({ user, logout }) => {
     const [openChat, setOpenChat] = useState();
@@ -13,7 +13,7 @@ const Home = ({ user, logout }) => {
         <div id='chats'>
             <ContactsList user={user} setOpenChat={setOpenChat} />
             {openChat ? 
-                <openChat user={user} OpenChat={openChat} />
+                <OpenChat user={user} openChat={openChat} />
                 :
                 <div id="openChat">
                     <h2>Select a user/room to start a chat</h2>

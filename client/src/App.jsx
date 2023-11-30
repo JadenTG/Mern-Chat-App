@@ -17,7 +17,8 @@ export default function App() {
     setUser()
     const verifyCookie = async () => {
       if (cookies.token && cookies.token !== "undefined") {
-        await axios.post(`&{baseURL}/`, {}, {withCredentails: true })
+
+        await axios.post(`${baseURL}/`, {}, {withCredentials: true })
         .then((res) => {
           setUser(res.data.user)
         }).catch(err => {

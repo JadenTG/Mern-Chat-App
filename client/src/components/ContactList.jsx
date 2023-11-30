@@ -10,7 +10,7 @@ const ContactList = ({ user, setOpenChat }) => {
     const [roomsList, setRoomsList] = useState([]);
 
     const fetchUsers = async () => {
-        axios.get(`${baseURL}/user/${user._id}/contacts`, { withCredentials: true }).then((res) => {
+        axios.get(`${baseURL}/users/${user._id}/contacts`, { withCredentials: true }).then((res) => {
             if (res.data.users) {
                 setUserList(res.data.users);
             }
@@ -20,7 +20,7 @@ const ContactList = ({ user, setOpenChat }) => {
     }
 
     const fetchRooms = async () => {
-        axios.get(`${baseURL}/users/${user._id}/room`, { withCredentials: true }).then((res) => {
+        axios.get(`${baseURL}/users/${user._id}/chat/room`, { withCredentials: true }).then((res) => {
             console.log(res.data)
             if (res.data.chats) {
                 setRoomsList(res.data.chats);
@@ -33,6 +33,7 @@ const ContactList = ({ user, setOpenChat }) => {
     const handleOpenChat = async (chatType, contact, room) => {
         if (chatType == 'private') {
             await axios.get(`${baseURL}/users/chat/${user._id}/${contact._id}`).then(async (res) => {
+                console.log(res.data.chat)
                 if (res.data.chat) {
                     setOpenChat({ chatId: res.data.chat._id, chatType: res.data.chat.type, members: res.data.chat.members, title: contact.username })
                 } else {
@@ -40,7 +41,7 @@ const ContactList = ({ user, setOpenChat }) => {
                         type: chatType,
                         members: [contact._id]
                     }).then((res) => {
-                        setOpenChat({ chatId: res.data._id, chatType: res.data.chat.type, members: res.data.chat.members, title: contact.username })
+                        setOpenChat({ chatId: res.data.chat._id, chatType: res.data.chat.type, members: res.data.chat.members, title: contact.username })
                     })
                 }
             })
@@ -86,7 +87,7 @@ const ContactList = ({ user, setOpenChat }) => {
                     return (
                         <li onClick={() => handleOpenChat('room', null, room)} key={room._id}>
                             <p>{room.name}</p>
-                            <p>{roomsList.members.length} users</p>
+                            <p>{room.members.length} users</p>
                         </li>
                     )
                 }) : <p>Your aren't in any rooms :/</p>

@@ -23,7 +23,7 @@ const RoomMembers = ({user, setErr, selectedUsers, setSelectedUsers}) => {
                 ...prev, contactId
             ])
         }else{
-            let newList = selectedUsers.filiter(id => id !== contactId);
+            let newList = selectedUsers.filter(id => id !== contactId);
             setSelectedUsers(newList)
         }
     }
@@ -38,7 +38,7 @@ const RoomMembers = ({user, setErr, selectedUsers, setSelectedUsers}) => {
             <ul className='contacts'>
                 {userList && userList.map((contact) => {
                     return(
-                        <li onClick={() => handleSelect(contact._id)} key={contact._id} classname={selectedUsers.includes(contact._id) ? "selected" : ""} >
+                        <li onClick={() => handleSelect(contact._id)} key={contact._id} className={selectedUsers.includes(contact._id) ? "selected" : ""} >
                             {contact.username}
                         </li>
                     )

@@ -1,10 +1,11 @@
-:root{
+:root {
   --primary: #4e416cff;
   --primary-light: #a186e0;
   --primary-lighter: #beaee1;
   --primary-dark: #302d38;
   --primary-white: #e1e1e1;
   --white: #fff;
+  /* --light-green: #CFE4A7; */
   --light-green: #b3c690;
   --light-red: #c67171;
 }
@@ -16,7 +17,7 @@
   font-family: sans-serif;
 }
 
-#root{
+#root {
   background-color: var(--primary-white);
   width: 100vw;
   height: 100vh;
@@ -26,16 +27,17 @@ a {
   text-decoration: none;
 }
 
-.form-wrapper{
+.form-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
   padding-top: 6rem;
 }
 
-/* Login & Sign Up */
-.container{
+/* Login & Signup */
+.container {
   background-color: var(--white);
+  /* padding: 2rem; */
   text-align: center;
   width: 30%;
   padding: 3.5rem 1rem;
@@ -47,30 +49,31 @@ a {
   gap: 0.5rem;
 }
 
-.container h1{
+.container h1 {
   font-weight: normal;
   font-size: 1.5rem;
   padding: 0.5rem 0;
 }
 
-.container input{
+.container input {
   width: 80%;
   padding: 1rem;
   margin: 0.5rem 0px;
   background-color: var(--primary-white);
+  color: var(--primary-dark);
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   outline: none;
 }
 
-.container input:focus{
+.container input:focus {
   background-color: var(--white);
   border: 1px solid var(--primary-light);
   color: var(--primary-light);
 }
 
-.container .btn{
+.container .btn {
   width: 80%;
   min-width: 150px;
   padding: 1rem;
@@ -84,19 +87,20 @@ a {
   cursor: pointer;
 }
 
-.container .err{
+.container .err {
   color: var(--light-red);
   font-weight: bold;
 }
 
-.container a{
+.container a {
   text-decoration: none;
   font-weight: bold;
   color: var(--primary-light);
 }
 
-/*  Chats */
-.header{
+/* Chats */
+
+.header {
   width: 100%;
   height: 10vh;
   display: flex;
@@ -105,56 +109,60 @@ a {
   padding: 0 2rem;
 }
 
-.header a{
+.header a {
   color: var(--primary);
 }
 
-.header a:active{
+.header a:active {
   color: var(--primary);
 }
 
-.header .aside{
+.header .aside {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.header p{
+.header p {
   font-weight: bold;
   margin-right: 1rem;
 }
 
-.header .btn{
+.header .btn {
   border-radius: 50%;
   padding: 0.5rem 0.6rem 0.4rem 0.7rem;
   border: none;
   background-color: var(--white);
   cursor: pointer;
+  /* text-decoration: none; */
 }
 
-.header i{
+.header i {
   font-size: 1.5rem;
   color: var(--primary-dark);
 }
 
 #chats,
-#rooms{
+#rooms {
   background-color: var(--white);
   height: 90vh;
   width: 100%;
   padding: 2rem;
+
   display: flex;
   justify-content: space-between;
 }
 
 /* Contacts List */
+
 #contactsList,
-#roomMembers{
+#roomMembers {
   width: 25%;
+  /* width: 20%; */
   overflow-y: auto;
 }
 
-#contactsList button{
+#contactsList button {
   background-color: transparent;
   border: none;
   font-weight: bold;
@@ -167,7 +175,7 @@ a {
 }
 
 .contacts,
-.rooms{
+.rooms {
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -175,7 +183,7 @@ a {
 }
 
 .contacts li,
-.rooms li{
+.rooms li {
   padding: 1.2rem;
   background-color: var(--primary-white);
   color: var(--primary-dark);
@@ -183,26 +191,26 @@ a {
   border-radius: 4px;
 }
 
-.rooms li{
+.rooms li {
   display: flex;
   justify-content: space-between;
 }
 
 /* Create Room */
-.form-wrapper #createRoom{
+.form-wrapper#createRoom {
   padding-top: 2rem;
 }
 
-#createRoom .container{
+#createRoom .container {
   height: fit-content;
 }
 
-.contacts .selected{
+.contacts .selected {
   background-color: var(--light-green);
 }
 
 /* Open Chat */
-#openChat{
+#openChat {
   width: 90%;
   margin-left: 2rem;
   display: flex;
@@ -213,13 +221,14 @@ a {
   border-radius: 5px;
 }
 
-#openchat h2{
+#openChat h2 {
   width: fit-content;
   margin: auto;
   color: var(--primary);
 }
 
-#openChat .chat-header{
+
+#openChat .chat-header {
   width: 100%;
   padding: 1rem;
   text-align: center;
@@ -229,14 +238,15 @@ a {
   color: var(--primary-dark);
 }
 
-.chat-header i{
+.chat-header i {
   text-align: end;
 }
 
-#openChat .chat-body{
+#openChat .chat-body {
   height: 100%;
   padding: 1rem;
   overflow-y: auto;
+  
 }
 
 .chat-body .messages{
@@ -250,11 +260,11 @@ a {
   width: fit-content;
   padding: .5rem;
   border-radius: 10px;
-  background-color: var(--primary-lighter);
+  background: var(--primary-lighter);
 }
 
 .chat-body .message.you{
-  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   text-align: end;
   align-self: end;
 }
@@ -273,18 +283,20 @@ a {
   color: var(--primary);
 }
 
-.chat-body h2{
+.chat-body h2 {
   justify-content: center;
   flex-direction: column;
   display: flex;
   height: 100%;
 }
 
-#openChat .chat-footer{
+
+
+#openChat .chat-footer {
   width: 100%;
 }
 
-.chat-footer form{
+.chat-footer form {
   margin: 0.5rem;
   height: 55px;
   background-color: var(--primary-white);
@@ -293,10 +305,10 @@ a {
   align-items: center;
 }
 
-.chat-footer input{
+.chat-footer input {
   flex: 1 1 0%;
-  padding: 1rem 0;
-  margin: 0xp 0.5rem 0px 1rem;
+  padding: 1rem 0px;
+  margin: 0px 0.5rem 0px 1rem;
   border-radius: 20px;
   border: none;
   background-color: transparent;
@@ -305,11 +317,11 @@ a {
   font-size: 1rem;
 }
 
-.chat-footer .message:focus{
+.chat-footer .message:focus {
   outline: none;
 }
 
-.chat-footer .sendBtn{
+.chat-footer .sendBtn {
   margin-right: 0.5rem;
   width: 40px;
   height: 40px;
@@ -321,7 +333,7 @@ a {
   padding-top: 0.2rem;
 }
 
-.sendBtn i{
+.sendBtn i {
   font-size: 1.2rem;
   cursor: pointer;
 }
