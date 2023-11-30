@@ -70,7 +70,7 @@ a {
   color: var(--primary-light);
 }
 
-.container btn{
+.container .btn{
   width: 80%;
   min-width: 150px;
   padding: 1rem;
@@ -84,7 +84,7 @@ a {
   cursor: pointer;
 }
 
-.container err{
+.container .err{
   color: var(--light-red);
   font-weight: bold;
 }

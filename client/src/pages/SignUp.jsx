@@ -28,10 +28,10 @@ const SignUp = ({ setUser }) => {
             return setErr("Password and Confirm Password must match");   
         }
 
-        await axios.post(`${baseURL}/auth/register`, {
+        await axios.post(`${baseURL}/auth/sign-up`, {
             username: userform.username,
             password: userform.password,
-            password: userform.password
+            confirmPass: userform.password
         }, {withCredentials: true }).then((res) => {
             if(res.data.user){
                 setUser(res.data.user)

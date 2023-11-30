@@ -1,8 +1,8 @@
 import React, {useState, useEffect } from 'react'
 
-import Header from '../components/Header'
-import ContactsList from '../components/ContactsList'
-import openChat from '../components/OpenChat'
+import Header from '../components/Header.jsx'
+import ContactsList from '../components/ContactList.jsx'
+import openChat from '../components/OpenChat.jsx'
 
 const Home = ({ user, logout }) => {
     const [openChat, setOpenChat] = useState();

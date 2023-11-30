@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const userSchema = require("../models/User");
 
-router.route("/register").post(async (req, res, next) => {
+router.route("/sign-up").post(async (req, res, next) => {
     req.body.password = await bcrypt.hash(req.body.passowrd, 10);
 
     await userSchema

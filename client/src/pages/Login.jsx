@@ -44,12 +44,12 @@ const Login = ({ setUser }) => {
                     <p>{err}</p>
                     </div>}
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Username" name="username" value={userform.username} />
+                    <input type="text" placeholder="Username" name="username" value={userform.username} onChange={() => {}}/>
                     <input type="password" placeholder="Password" name="password" value={userform.password} onChange={handleChange} />
 
                     <button type="submit" className="btn">Login</button>
                 </form>
-                <p>Don't Have an Account <Link to="/signup">Sign Up</Link></p>
+                <p>Don't Have an Account <Link to="/sign-up">Sign Up</Link></p>
             </div>
         </div>
     )
