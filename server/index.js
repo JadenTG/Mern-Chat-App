@@ -15,7 +15,7 @@ const userRoutes = require("./routes/users");
 
 const authMiddleware = require("./middleware/authmiddlewar");
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "http://https://mern-chat-app-backend-3r5n.onrender.com5173",
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
     credentials: true,
     methods: ['GET', 'POSTS'],
